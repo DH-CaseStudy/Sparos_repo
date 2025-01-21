@@ -1,10 +1,43 @@
 package day10;
 
 public class Person {
-    public String name;
-    public int age;
-    public String phoneNumber;
-    public String gender;
+    private String name;
+    private int age;
+    private String phoneNumber;
+    private String gender;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
 
     //디폴트 생성자.
     public Person(){
