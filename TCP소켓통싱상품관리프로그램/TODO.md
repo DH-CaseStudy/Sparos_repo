@@ -1,0 +1,21 @@
+### ✍️ TODO
+- [ ] Readme 작성
+- [X] Exception 처리
+  - [X] 메뉴에 없는 번호 입력
+  - [X] 없는 상품 번호 입력
+  - [X] 상품 정보 null 입력
+  - [X] 0 ~ 999,999 외 상품 가격
+  - [X] 0 ~ 999 외 상품 재고 
+  - [X] 상품 번호, 가격, 재고 정수 입력 확인
+- [X] 에러 코드 Enum화
+- [X] 멀티 쓰레드 적용
+- [X] Thread Pool 적용
+- [ ] try-with-resource 사용 (socket.close())
+- [ ] ~~`ClientService` 클래스 `menuDataHandler.set()` 메서드화 (Map 이용)~~
+- [X] 정규 표현식 적용 (메뉴 번호, 상품 가격, 상품 재고 등)
+- [X] Server 처리 결과 `status` Client로 보내기
+- [X] ProductDto 익명 메서드 제거
+- [ ] Serializable시, uid 작성
+- [X] 유효성 검사 클래스 별도로 작성
+- [X] ProductDto updateProduct 파라미터 객체로 변경
+- [ ] `ProductClient`, `ProductServer` 에서 기능 부분 클래스로 빼기
