@@ -1,13 +1,15 @@
 package day10;
 
+import day10.dto.MovieDTO;
+
 public class MovieMain {
     public static void main(String[] args) {
-        MovieDTO movie1 = new MovieDTO();
-        movie1.title = "검은 수녀들";
-        movie1.startDate = 20250105;
-        movie1.actor = "송혜교";
-        movie1.runningTime = "150m";
-        movie1.grade = "15";
+//        MovieDTO movie1 = new MovieDTO();
+//        movie1.title = "검은 수녀들";
+//        movie1.startDate = 20250105;
+//        movie1.actor = "송혜교";
+//        movie1.runningTime = "150m";
+//        movie1.grade = "15";
 
 //        movie1.moviePrint(movie1);
 //

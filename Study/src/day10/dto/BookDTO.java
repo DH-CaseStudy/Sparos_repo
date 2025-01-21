@@ -1,4 +1,4 @@
-package day10;
+package day10.dto;
 
 public class BookDTO {
     public  String title;
