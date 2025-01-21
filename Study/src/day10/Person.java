@@ -59,15 +59,15 @@ public class Person {
         this.gender = _gender;
     }
 
-    public void work(){
-        System.out.println("일 하다.");
+    public String work(){
+        return "일 하다.";
     }
 
-    public void eat(){
-        System.out.println("먹다.");
+    public String eat(){
+        return "먹다";
     }
 
-    public  void walk(){
-        System.out.println("걷다.");
+    public  String walk(){
+        return "걷다";
     }
 }
