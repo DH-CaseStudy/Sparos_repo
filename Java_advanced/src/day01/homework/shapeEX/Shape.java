@@ -1,4 +1,4 @@
-package day01.homework;
+package day01.homework.shapeEX;
 
 public abstract class Shape {
     private double area;

@@ -1,4 +1,4 @@
-package day01.homework;
+package day01.homework.shapeEX;
 
 public class TestShape {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package day01.homework;
+package day01.homework.shapeEX;
 
 public class Circle extends Shape{
     private double radius;
