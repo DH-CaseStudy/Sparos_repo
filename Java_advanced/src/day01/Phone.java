@@ -18,4 +18,8 @@ public class Phone {
     public void bell(){
         System.out.println("ring irng");
     }
+
+    public final void volumeUp(){
+        System.out.println("볼륨을 높이다.");
+    }
 }
