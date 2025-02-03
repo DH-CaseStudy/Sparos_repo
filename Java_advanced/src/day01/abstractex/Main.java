@@ -7,5 +7,14 @@ public class Main {
 
         dog.sound();
         cat.sound();
+
+        animalSound(dog); // animal -> dog
+        animalSound(cat); // animal -> cat
+    }
+
+    public static void animalSound(Animal animal){
+        if(animal instanceof Cat){
+            animal.sound();
+        }
     }
 }
