@@ -17,6 +17,7 @@ public class Circle extends Shape{
 
     @Override
     public void calculationArea() {
-        System.out.println("원의 면적은 " + radius * Math.PI);
+        //System.out.println("원의 면적은 " + radius * radius * Math.PI);
+        this.area = radius * radius * Math.PI;
     }
 }

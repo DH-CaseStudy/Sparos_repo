@@ -27,6 +27,7 @@ public class Rectangular extends Shape {
 
     @Override
     public void calculationArea() {
-        System.out.println("직사각형의 면적은 " + width * height);
+        //System.out.println("직사각형의 면적은 " + width * height);
+        this.area = width * height;
     }
 }

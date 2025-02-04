@@ -1,7 +1,7 @@
 package day01.homework.shapeEX;
 
 public abstract class Shape {
-    private double area;
+    protected double area;
     private String name;
 
     public Shape(){
@@ -15,7 +15,7 @@ public abstract class Shape {
     public abstract void calculationArea();
 
     public void print(){
-
+        System.out.println(area);
     }
 
     public double getArea() {
