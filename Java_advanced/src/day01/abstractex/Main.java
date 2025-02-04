@@ -10,6 +10,11 @@ public class Main {
 
         animalSound(dog); // animal -> dog
         animalSound(cat); // animal -> cat
+
+        Human human = new Dh();
+
+        human.speak();
+        human.listen();
     }
 
     public static void animalSound(Animal animal){
