@@ -2,7 +2,7 @@ package day01.homework.coffeEX;
 
 public abstract class Beverage {
     private String name;
-    private int price;
+    protected int price;
 
     public Beverage(String name) {
         this.name = name;

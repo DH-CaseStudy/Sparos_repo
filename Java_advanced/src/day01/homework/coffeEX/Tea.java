@@ -1,7 +1,7 @@
 package day01.homework.coffeEX;
 
 public class Tea extends Beverage{
-    public static int amount;
+    static int amount;
 
     public Tea(String name, int price) {
         super(name, price);
