@@ -16,5 +16,7 @@ public class RemoteControlMain {
 
         remoteControl.setMute(true);
         remoteControl.setMute(false);
+
+        RemoteControl.changeBattery();
     }
 }

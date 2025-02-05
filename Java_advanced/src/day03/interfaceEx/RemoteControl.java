@@ -22,4 +22,11 @@ public interface RemoteControl {
         }
     }
 
+    //배터리 교체 기능을 정적메소드를 통하여 구현
+    public static void changeBattery(){
+        System.out.println("건전지 교체");
+    }
+
+
+
 }
