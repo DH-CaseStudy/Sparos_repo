@@ -1,6 +1,8 @@
 package day03.interfaceEx;
 
 public class Radio implements RemoteControl{
+    private int volume;
+
     @Override
     public void turnOn() {
         System.out.println("라디오를 켜다");
@@ -9,5 +11,16 @@ public class Radio implements RemoteControl{
     @Override
     public void turnOff() {
         System.out.println("라디오를 끄다");
+    }
+
+    @Override
+    public void setVolume(int volume) {
+        if(volume > RemoteControl.MAX_VALUE){
+            this.volume = RemoteControl.MAX_VALUE;
+            System.out.println("해당 제품의 최대 볼륨 값 입니다.");
+        } else if (volume < RemoteControl.MINIMUM_VALUE){
+            this.volume = RemoteControl.MINIMUM_VALUE;
+            System.out.println("해당 제품의 최소 볼륨 값 입니다.");
+        }
     }
 }

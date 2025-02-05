@@ -11,4 +11,6 @@ public interface RemoteControl {
     public void turnOn();
     public void turnOff();
 
+    public abstract void setVolume(int volume);
+
 }
