@@ -11,5 +11,9 @@ public class RemoteControlMain {
 
         remoteControl.turnOn();
         remoteControl.turnOff();
+
+        //상수는 구현 객체와 관련이 없는 인터페이스의 멤버이므로 바로 접근하여 값을 읽는다.
+        System.out.println(remoteControl.MAX_VALUE);
+        System.out.println(remoteControl.MINIMUM_VALUE);
     }
 }
