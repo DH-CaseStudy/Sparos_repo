@@ -20,12 +20,26 @@ public class FactoryExample {
 		// openHour: 9 AM, closeHour: 6 PM
 		TVFactory TVXYZ = new TVFactory("TVXYZ", 9, 18);
 
+
 		FactoryExample ex = new FactoryExample();
-		// 각 공장 별로기술력값에 따른 하루 생산량과 파트너 사 협력 시 추가 생산량을 알아본다  
+		// 각 공장 별로기술력값에 따른 하루 생산량과 파트너 사 협력 시 추가 생산량을 알아본다
 		ex.getResult(CarABC, 'A', CarXYZ);
+		System.out.println("1. 하루 생산량 = " + CarABC.makeProducts('A'));
+		System.out.println("2. 파트너 공장 [CarXYZ] 협력 시 추가 생산량 = " + CarXYZ.makeProducts('B'));
+
 		ex.getResult(CarXYZ, 'B', CarABC);
+		System.out.println("1. 하루 생산량 = " + CarXYZ.makeProducts('B'));
+		System.out.println("2. 파트너 공장 [CarABC] 협력 시 추가 생산량 = " + CarABC.makeProducts('B'));
+
 		ex.getResult(TVABC, 'A', TVXYZ);
+		System.out.println("1. 하루 생산량 = " + TVABC.makeProducts('A'));
+		System.out.println("2. 파트너 공장 [TVXYZ] 협력 시 추가 생산량 = " + TVXYZ.makeProducts('C'));
+
+
 		ex.getResult(TVXYZ, 'B', TVABC);
+		System.out.println("1. 하루 생산량 = " + TVXYZ.makeProducts('B'));
+		System.out.println("2. 파트너 공장 [TVABC] 협력 시 추가 생산량 = " + TVXYZ.makeProducts('C'));
+
 
 	}
 

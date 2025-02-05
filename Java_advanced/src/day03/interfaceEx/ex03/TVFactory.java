@@ -8,11 +8,16 @@ public class TVFactory extends Factory implements IWorkingTogether{
 
     @Override
     int makeProducts(char skill) {
-        return 0;
+        return switch (skill) {
+            case 'A' -> 8 * getWorkingTime();
+            case 'B' -> 5 * getWorkingTime();
+            case 'C' -> 3 * getWorkingTime();
+            default -> getWorkingTime();
+        };
     }
 
     @Override
     public int workTogether(IWorkingTogether partner) {
-        return 0;
+        return makeProducts('C');
     }
 }
