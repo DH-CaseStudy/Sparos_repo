@@ -21,6 +21,10 @@ public class Radio implements RemoteControl{
         } else if (volume < RemoteControl.MINIMUM_VALUE){
             this.volume = RemoteControl.MINIMUM_VALUE;
             System.out.println("해당 제품의 최소 볼륨 값 입니다.");
+        } else {
+            this.volume = volume;
         }
+
+        System.out.println("현재 볼륨은 " + this.volume);
     }
 }
