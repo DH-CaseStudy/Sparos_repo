@@ -14,5 +14,7 @@ public class RemoteControlMain {
         remoteControl.setVolume(20);
         remoteControl.turnOff();
 
+        remoteControl.setMute(true);
+        remoteControl.setMute(false);
     }
 }

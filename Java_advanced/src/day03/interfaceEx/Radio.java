@@ -27,4 +27,18 @@ public class Radio implements RemoteControl{
 
         System.out.println("현재 볼륨은 " + this.volume);
     }
+
+    private int memoryVolume;
+    //내가 사용했던 이전 볼륨을 기억했다가 무음모드로 해제 이후 다시 복원
+    @Override
+    public void setMute(boolean mute) {
+        if(mute){
+            this.memoryVolume = this.volume;
+            System.out.println("무음 처리");
+            setVolume(RemoteControl.MINIMUM_VALUE);
+        } else {
+            System.out.println("무음 해제");
+            setVolume(this.memoryVolume); //원복
+        }
+    }
 }

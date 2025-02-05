@@ -13,4 +13,13 @@ public interface RemoteControl {
 
     public abstract void setVolume(int volume);
 
+    default void setMute(boolean mute){
+        if(mute){
+            System.out.println("무음 모드로 전환됩니다.");
+            setVolume(MINIMUM_VALUE);
+        } else {
+            System.out.println("무음 해제");
+        }
+    }
+
 }
