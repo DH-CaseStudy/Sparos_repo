@@ -2,14 +2,9 @@ package day05.innerClass.ex06.builderpattern;
 
 public class Shop {
     public static void main(String[] args) {
-        Hamburger hamburger1 = new Hamburger();
-        hamburger1.setBun(2);
-        hamburger1.setBacon(3);
-        hamburger1.setCheese(1);
-
-        Hamburger hamburger2 = new Hamburger();
-        Hamburger hamburger3 = new Hamburger();
-
+        Hamburger hamburger = new Hamburger.BurgerBuilder("플랫", "쇠고기" , "콜라").addCheese().addBacon()
+                .addTomato().addLettuce().build();
+        System.out.println(hamburger);
     }
 }
 
