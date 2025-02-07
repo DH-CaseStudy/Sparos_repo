@@ -1,8 +1,18 @@
-package innerClass;
+package day05.innerClass.ex01;
 
 //인스턴스 멤버클래스 B를 A 내부에 생성
 //B객체는 A클래스 내부 어디에서나 생성할 수는 없고, 인스턴스 필드 값, 생성자, 인스턴스 메소드에 생성할 수 있음
 public class ClassA {
+
+    private int life = 100;
+
+    private class animal{
+
+        void method(){
+            System.out.println("life : " + life);
+        }
+    }
+
 
 
     class B{

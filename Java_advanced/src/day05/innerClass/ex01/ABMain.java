@@ -1,4 +1,4 @@
-package innerClass;
+package day05.innerClass.ex01;
 
 public class ABMain {
     public static void main(String[] args) {
