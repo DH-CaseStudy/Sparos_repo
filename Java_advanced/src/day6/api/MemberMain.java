@@ -10,10 +10,13 @@ public class MemberMain {
         Member m1 = new Member("신세계");
         Member m2 = new Member("신세계");
 
-        //컴퓨터 관점.
-        System.out.println(m1 == m2);
-        //사용자 관점으로 재정의
-        System.out.println(m1.equals(m2));
+//        //컴퓨터 관점.
+//        System.out.println(m1 == m2);
+//        //사용자 관점으로 재정의
+//        System.out.println(m1.equals(m2));
+
+        System.out.println(System.identityHashCode(m1));
+        System.out.println(System.identityHashCode(m2));
 
         System.out.println(m1.hashCode());
         System.out.println(m2.hashCode());
