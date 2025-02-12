@@ -38,13 +38,13 @@ public class StudentMain {
             }
 
             studentList.add(new Student(name, sno, temp, total, (double) total / 3));
-            temp.clear();
 
             Collections.sort(studentList, Comparator.comparing(Student::getAverage));
             System.out.println("성적 오름 차순 :  \n" + studentList);
 
             Collections.sort(studentList, Comparator.comparing(Student::getAverage, Comparator.reverseOrder()));
             System.out.println("성적 내림 차순 :  \n" + studentList);
+
         }
 
     }

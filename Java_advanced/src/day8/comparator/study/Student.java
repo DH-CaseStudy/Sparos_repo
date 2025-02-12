@@ -1,7 +1,6 @@
 package day8.comparator.study;
 
 import java.util.Hashtable;
-import java.util.List;
 
 public class Student {
     private String name;
@@ -65,7 +64,7 @@ public class Student {
         return "Student{" +
                 "name='" + name + '\'' +
                 ", sno='" + sno + '\'' +
-                ", subjectScore=" + subjectScore +
+                ", subjectScore=" + subjectScore+
                 ", total=" + total +
                 ", average=" + average +
                 '}' +"\n";
