@@ -14,7 +14,7 @@ public class ConnectionEx {
             //1 jdbc dirver를 등록 : MYSQL DB 접근 하기 우히ㅏㄴ 드라이버 등록
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("드라이버 로드 완료!");
-
+            //2 mysql 특정 db와 특정 계정으로 연결
             connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/극장데이터베이스?serverTimezone=Asia/Seoul", "root", "3546");
             System.out.println("디비 연결 완료");
         } catch (ClassNotFoundException | SQLException e){
