@@ -9,22 +9,45 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("1 , 2, 3 ,4, 5 중 고르시오~");
+        System.out.println("1 모두 출력, 2 입력, 3 삭제, 4 선택 출력, 5 업데이트");
         String strNum = br.readLine();
 
         switch (strNum) {
-            case "1":   boardSelectAll(); break;
-            case "2": break;
-            case "3": break;
-            case "4": break;
-            case "5": break;
+            case "1":
+                boardSelectAll(); break;
+            case "2":
+                System.out.println("제목을 입력하세요.");
+                String title = br.readLine();
+
+                System.out.println("제목을 입력하세요.");
+                String content = br.readLine();
+
+                System.out.println("제목을 입력하세요.");
+                String writer4 = br.readLine();
+                boardInsert(title, content, writer4);break;
+            case "3":
+                System.out.println("지우려는 게시물의 작성자를 입력하시오.");
+                String writer1 = br.readLine();
+                boardDelete(writer1);break;
+            case "4":
+                System.out.println("출력하려는 게시물의 작성자를 입력하시오.");
+                String writer2 = br.readLine();
+                boardSelectOne(writer2);break;
+            case "5":
+                System.out.println("업데이트 하려는 게시물의 내용을 입력하시오.");
+                String content2 = br.readLine();
+                System.out.println("출력하려는 게시물의 작성자를 입력하시오.");
+                String writer3 = br.readLine();
+                boardUpdate(content2, writer3);break;
+            default:
+                System.out.println("잘못된 입력");
         }
 
 
 
     }
 
-    public static void boardInsert(){
+    public static void boardInsert(String title, String content, String writer) {
         Connection connection = null;
 
         try {
@@ -44,9 +67,9 @@ public class Main {
 
             PreparedStatement pstmt = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS); //bno 값을 가져오기 위해
 
-            pstmt.setString(1, "벌써 반팔");
-            pstmt.setString(2, "벌써 반팔 꺼내야 하나봐~");
-            pstmt.setString(3, "아무개");
+            pstmt.setString(1, title);
+            pstmt.setString(2, writer);
+            pstmt.setString(3, content);
             pstmt.setString(4, "spring.jpg");
             pstmt.setBlob(5, new FileInputStream("src/images/spring.jpg"));
 
@@ -84,7 +107,7 @@ public class Main {
         }
     }
 
-    public static void boardDelete(){
+    public static void boardDelete(String writer){
         Connection connection = null;
 
         try {
@@ -104,7 +127,7 @@ public class Main {
 
             PreparedStatement pstmt = connection.prepareStatement(query);
 
-            pstmt.setString(1, "아무개");
+            pstmt.setString(1, writer);
 
 
             //4. 쿼리문 실행
@@ -150,7 +173,7 @@ public class Main {
 
             while (rs.next()) {
                 Boards board = new Boards();
-                board.setBno(rs.getString("bno"));
+                board.setBno(rs.getInt("bno"));
                 board.setBtitle(rs.getString("btitle"));
                 board.setBcontent(rs.getString("bcontent"));
                 board.setBwriter(rs.getString("bwriter"));
@@ -176,7 +199,7 @@ public class Main {
         }
     }
 
-    public static void boardSelectOne(){
+    public static void boardSelectOne(String writer){
         Connection connection = null;
         ResultSet rs = null;
 
@@ -196,14 +219,14 @@ public class Main {
                     .append("WHERE bwriter = ? ").toString();
 
             PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.setString(1, "아무개");
+            pstmt.setString(1, writer);
 
             //4. 쿼리문 실행
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 Boards board = new Boards();
-                board.setBno(rs.getString("bno"));
+                board.setBno(rs.getInt("bno"));
                 board.setBtitle(rs.getString("btitle"));
                 board.setBcontent(rs.getString("bcontent"));
                 board.setBwriter(rs.getString("bwriter"));
@@ -229,7 +252,7 @@ public class Main {
         }
     }
 
-    public static void boardUpdate() {
+    public static void boardUpdate(String updateContent, String writer) {
         Connection connection = null;
 
         try {
@@ -250,8 +273,8 @@ public class Main {
 
             PreparedStatement pstmt = connection.prepareStatement(query);
 
-            pstmt.setString(1, "내용을 업데이트 했습니다");
-            pstmt.setString(2, "이동휘");
+            pstmt.setString(1, updateContent);
+            pstmt.setString(2, writer);
 
 
             //4. 쿼리문 실행

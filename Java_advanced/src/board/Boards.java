@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 public class Boards {
 
-    private String bno;
+    private int bno;
     private String btitle;
     private String bcontent;
     private String bwriter;

@@ -29,7 +29,7 @@ public class BoardSelectAll {
 
             while (rs.next()) {
                 Boards board = new Boards();
-                board.setBno(rs.getString("bno"));
+                board.setBno(rs.getInt("bno"));
                 board.setBtitle(rs.getString("btitle"));
                 board.setBcontent(rs.getString("bcontent"));
                 board.setBwriter(rs.getString("bwriter"));
