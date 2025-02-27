@@ -1,11 +1,13 @@
-package jdbc.users;
+package board;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-public class UserSelectAll {
+public class BoardUpdate {
     public static void main(String[] args) {
         Connection connection = null;
-        ResultSet rs = null;
 
         try {
 
@@ -19,24 +21,19 @@ public class UserSelectAll {
 
             //3 매개 변수화 된 SQL 문 작성
             String query = new StringBuilder()
-                    .append("SELECT * FROM users").toString();
+                    .append(" UPDATE boards SET ")
+                    .append(" btitle = ? ")
+                    .append(" WHERE bwriter = ? ").toString();
 
             PreparedStatement pstmt = connection.prepareStatement(query);
-//            pstmt.setString(1, "ssgcom1");
+
+            pstmt.setString(1, "내용을 업데이트 했습니다");
+            pstmt.setString(2, "이동휘");
+
 
             //4. 쿼리문 실행
-            rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                User user = new User();
-                user.setUserid(rs.getString("userid"));
-                user.setUsername(rs.getString("username"));
-                user.setPassword(rs.getString("userpassword"));
-                user.setUserage(rs.getInt("userage"));
-                user.setEmail(rs.getString("useremail"));
-                System.out.println(user.toString());
-            }
-
+            int rows = pstmt.executeUpdate();
+            System.out.println(rows + " rows affected");
             pstmt.close();
 
         } catch (ClassNotFoundException | SQLException e){

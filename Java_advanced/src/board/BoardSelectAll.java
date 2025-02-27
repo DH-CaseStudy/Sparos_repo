@@ -1,8 +1,10 @@
-package jdbc.users;
+package board;
+
+import com.mysql.cj.jdbc.Blob;
 
 import java.sql.*;
 
-public class UserSelectAll {
+public class BoardSelectAll {
     public static void main(String[] args) {
         Connection connection = null;
         ResultSet rs = null;
@@ -19,22 +21,22 @@ public class UserSelectAll {
 
             //3 매개 변수화 된 SQL 문 작성
             String query = new StringBuilder()
-                    .append("SELECT * FROM users").toString();
+                    .append("SELECT * FROM boards ").toString();
 
             PreparedStatement pstmt = connection.prepareStatement(query);
-//            pstmt.setString(1, "ssgcom1");
-
             //4. 쿼리문 실행
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                User user = new User();
-                user.setUserid(rs.getString("userid"));
-                user.setUsername(rs.getString("username"));
-                user.setPassword(rs.getString("userpassword"));
-                user.setUserage(rs.getInt("userage"));
-                user.setEmail(rs.getString("useremail"));
-                System.out.println(user.toString());
+                Boards board = new Boards();
+                board.setBno(rs.getString("bno"));
+                board.setBtitle(rs.getString("btitle"));
+                board.setBcontent(rs.getString("bcontent"));
+                board.setBwriter(rs.getString("bwriter"));
+                board.setBdate(rs.getDate("bdate"));
+                board.setBfilename(rs.getString("bfilename"));
+                board.setBfiledata((Blob) rs.getBlob("bfiledata"));
+                System.out.println(board.toString());
             }
 
             pstmt.close();
