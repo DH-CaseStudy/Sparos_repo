@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class UserInsert {
+public class UserDelete {
     public static void main(String[] args) {
         Connection connection = null;
 
@@ -20,17 +20,14 @@ public class UserInsert {
             System.out.println("디비 연결 완료");
 
             //3 매개 변수화 된 SQL 문 작성
-            String query = "" +
-                            "INSERT INTO users (userid, username, userpassword, userage, useremail) " +
-                            "VALUES (?, ?, ?, ?, ?)";
+            String query = new StringBuilder()
+                            .append(" Delete from users ")
+                            .append(" WHERE userid = ? ").toString();
 
             PreparedStatement pstmt = connection.prepareStatement(query);
 
             pstmt.setString(1, "ehdgnl");
-            pstmt.setString(2, "이동휘");
-            pstmt.setString(3, "1234");
-            pstmt.setInt(4, 32);
-            pstmt.setString(5, "ehdgnl@gmail.com");
+
 
             //4. 쿼리문 실행
             int rows = pstmt.executeUpdate();

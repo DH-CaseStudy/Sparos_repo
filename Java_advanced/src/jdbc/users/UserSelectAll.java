@@ -1,13 +1,11 @@
 package jdbc.users;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
-public class UserInsert {
+public class UserSelectAll {
     public static void main(String[] args) {
         Connection connection = null;
+        ResultSet rs = null;
 
         try {
 
@@ -20,21 +18,26 @@ public class UserInsert {
             System.out.println("디비 연결 완료");
 
             //3 매개 변수화 된 SQL 문 작성
-            String query = "" +
-                            "INSERT INTO users (userid, username, userpassword, userage, useremail) " +
-                            "VALUES (?, ?, ?, ?, ?)";
+            //3 매개 변수화 된 SQL 문 작성
+            String query = new StringBuilder()
+                    .append("SELECT * FROM users").toString();
 
             PreparedStatement pstmt = connection.prepareStatement(query);
-
-            pstmt.setString(1, "ehdgnl");
-            pstmt.setString(2, "이동휘");
-            pstmt.setString(3, "1234");
-            pstmt.setInt(4, 32);
-            pstmt.setString(5, "ehdgnl@gmail.com");
+//            pstmt.setString(1, "ssgcom1");
 
             //4. 쿼리문 실행
-            int rows = pstmt.executeUpdate();
-            System.out.println(rows + " rows affected");
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                User user = new User();
+                user.setUserid(rs.getString("userid"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("userpassword"));
+                user.setUserage(rs.getInt("userage"));
+                user.setEmail(rs.getString("useremail"));
+                System.out.println(user.toString());
+            }
+
             pstmt.close();
 
         } catch (ClassNotFoundException | SQLException e){
