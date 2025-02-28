@@ -6,45 +6,48 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class BoardDelete {
-    public static void main(String[] args) {
-        Connection connection = null;
 
-        try {
+    public void DeleteBoard(String writer){
+        String query = new StringBuilder()
+                .append(" Delete from boards ")
+                .append(" WHERE bwriter = ? ").toString();
 
-            //1 jdbc driver 등록 : MYSQL DB 접근 하기 우히ㅏㄴ 드라이버 등록
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("드라이버 로드 완료!");
+        try(Connection connection = DBConnection.getConnection();
+            PreparedStatement pstmt = connection.prepareStatement(query)){
 
-            //2 mysql 특정 db와 특정 계정으로 연결
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ssg?serverTimezone=Asia/Seoul", "root", "3546");
-            System.out.println("디비 연결 완료");
-
-            //3 매개 변수화 된 SQL 문 작성
-            String query = new StringBuilder()
-                    .append(" Delete from boards ")
-                    .append(" WHERE bwriter = ? ").toString();
-
-            PreparedStatement pstmt = connection.prepareStatement(query);
-
-            pstmt.setString(1, "아무개");
+            pstmt.setString(1, writer);
 
 
             //4. 쿼리문 실행
             int rows = pstmt.executeUpdate();
             System.out.println(rows + " rows affected");
-            pstmt.close();
 
-        } catch (ClassNotFoundException | SQLException e){
+//            DBConnection.closeConnection();
+
+        } catch (SQLException e) {
             throw new RuntimeException(e);
-        } finally {
-            if(connection != null) {
-                try{
-                    connection.close();
-                    System.out.println("연결 종료");
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
+
+//    public static void main(String[] args) {
+//        String query = new StringBuilder()
+//                .append(" Delete from boards ")
+//                .append(" WHERE bwriter = ? ").toString();
+//
+//        try(Connection connection = DBConnection.getConnection();
+//            PreparedStatement pstmt = connection.prepareStatement(query)){
+//
+//            pstmt.setString(1, "아무개");
+//
+//
+//            //4. 쿼리문 실행
+//            int rows = pstmt.executeUpdate();
+//            System.out.println(rows + " rows affected");
+//
+//            DBConnection.closeConnection();
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }

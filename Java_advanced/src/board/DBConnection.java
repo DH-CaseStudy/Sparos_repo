@@ -5,9 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    private static final String url = "jdbc:mysql://localhost:3306/board";
+
+    //jdbc:mysql://127.0.0.1:3306/ssg?serverTimezone=Asia/Seoul
+    private static final String url = "jdbc:mysql://127.0.0.1:3306/ssg?serverTimezone=Asia/Seoul";
     private static final String user = "root";
-    private static final String password = "root";
+    private static final String password = "3546";
 
     private static Connection connection = null; //싱글톤
 
@@ -17,7 +19,7 @@ public class DBConnection {
 
     public static Connection getConnection() {
         try {
-            if(connection == null) {
+            if(connection == null || connection.isClosed()) {
                 Class.forName("com.mysql.cj.jdbc.Driver"); // JDBC 드라이버 로드
                 connection = DriverManager.getConnection(url, user, password);
             }
