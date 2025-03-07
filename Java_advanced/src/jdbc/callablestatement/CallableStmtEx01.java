@@ -14,7 +14,7 @@ public class CallableStmtEx01 {
 
         cstmt = connection.prepareCall("{call input(?, ?)}"); // ? : cData ? : cTname
 
-        cstmt.setString(1, "유니티 개발자");
+        cstmt.setString(1, "유니티 개발자2");
         cstmt.setString(2, "CODE1");
 
         boolean flag = cstmt.execute();
